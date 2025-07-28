@@ -16,8 +16,8 @@ pipeline {
         stage('Docker Build&Push') {
             steps {
                 withDockerRegistry(credentialsId: 'docker', url: "") {
-                    sh 'docker build -t issaouib/compare-appf25 .'
-                    sh 'docker push issaouib/compare-appf25'
+                    sh 'docker build -t basmadevops/compare-appt2025 .'
+                    sh 'docker push basmadevops/compare-appt2025'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 withDockerRegistry(credentialsId: 'docker', url: "") {
-                    sh 'docker -H ssh://ubuntu@172.31.1.77 run -d --name myapp -p 8082:8080 issaouib/compare-appf25'
+                    sh 'docker -H ssh://ubuntu@13.39.20.51 run -d --name myapp -p 8083:8080 basmadevops/compare-appt2025'
                 }
             }  
         }
