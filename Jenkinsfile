@@ -27,7 +27,7 @@ pipeline {
                 withDockerRegistry(credentialsId: 'docker', url: "") {
                     sh '''
                     export DOCKER_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
-                    docker -H ssh://ubuntu@13.39.20.51 run -d --name myapp -p 8083:8080 basmadevops/compare-app'
+                    docker -H ssh://ubuntu@13.39.20.51 run -d --name myapp -p 8083:8080 basmadevops/compare-app
                     '''
                 }
             }  
